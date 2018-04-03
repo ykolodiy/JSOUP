@@ -7,6 +7,32 @@ import org.jsoup.nodes.Element;
 public class addClass {
 
 	public static void main(String[] args) {
+		
+		
+		 Document doc = Jsoup.connect("http://en.wikipedia.org/").get();
+	        
+	        Element div = doc.select("div").first(); // <div></div>
+	        div.html("<p>lorem ipsum</p>"); // <div><p>lorem ipsum</p></div>
+	        div.prepend("<p>First</p>");
+	        div.append("<p>Last</p>");
+	        div.removeClass("noprint");
+	        div.addClass("suck");
+	        // now: <div><p>First</p><p>lorem ipsum</p><p>Last</p></div>
+
+	        System.out.println(div);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		String html = "<div>An <a href='http://example.com/'><b>example</b></a> link.</div>";
 		Document doc = Jsoup.parse(html);
 		doc.select("div.comments").attr("rel", "nofollow");
