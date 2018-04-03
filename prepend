@@ -1,0 +1,24 @@
+package myJSOUP;
+
+import java.io.IOException;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+public class prepend {
+
+	 public static void main(String[] args) throws IOException {
+	        Document doc = Jsoup.connect("http://en.wikipedia.org/").get();
+	        
+	        Element div = doc.select("div").first(); // <div></div>
+	        div.html("<p>lorem ipsum</p>"); // <div><p>lorem ipsum</p></div>
+	        div.prepend("<p>First</p>");
+	        div.append("<p>Last</p>");
+	        // now: <div><p>First</p><p>lorem ipsum</p><p>Last</p></div>
+
+	        System.out.println(div);
+	        }
+	    }
+	
